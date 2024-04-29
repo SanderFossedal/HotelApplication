@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+   <h1 class="display-4">Welcome to Radisson <span class="text-info text-">Bju</span></h1>
+
+   <div class="my-5">
+       <p class="pt-3">When do you want to stay here?</p>
+       <form asp-action="SearchRoom" method="post">
+            <div class="d-flex flex-row justify-content-center ">
+               <div class="p-3 pt-0 bg-highlight">
+                   <p>From</p>
+                   <input type="date" name="fromDate"/>
+               </div>
+                <div class="p-3 pt-0">
+                   <p>To</p>
+                    <input type="date" name="toDate" />
+               </div>
+           </div>
+            <button type="submit" class="btn-info mt-2">Check available rooms</button>
+        </form>
+    </div>
+</div>

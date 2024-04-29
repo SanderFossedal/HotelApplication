@@ -1,0 +1,73 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Height="600" Width="920"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen">
+    <Border Background="#252735"
+            CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="3" VerticalAlignment="Center">
+                <Label Content="Choose your role" 
+                       Foreground="#fff" FontSize="72" 
+                       HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button 
+                    Height="331" Width="239"
+                    Click="OpenCleanerWindow">
+                    <Image HorizontalAlignment="Left"  Name="CleaningImg" Height="165" 
+        VerticalAlignment="Top" Width="189" Source="/img/cleaning-icon.png"/>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button
+                    Height="331" Width="240"
+                    Click="OpenServiceWindow">
+                    <Image HorizontalAlignment="Left"  Name="ServiceImg" Height="165" 
+        VerticalAlignment="Top" Width="189" Source="/img/service-icon.png"/>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button
+                    Height="332" Width="239"
+                    Click="OpenMaintenanceWindow">
+                    <Image HorizontalAlignment="Left"  Name="MaintenanceImg" Height="165" VerticalAlignment="Top" Width="189" Source="/img/maintenance-icon.png"/>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

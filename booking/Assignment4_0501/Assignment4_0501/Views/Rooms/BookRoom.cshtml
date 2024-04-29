@@ -1,0 +1,31 @@
+﻿@model Assignment4_0501.Models.Room
+
+@{
+    ViewData["Title"] = "BookRoom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DateTime fromDateInput = (DateTime)TempData.Peek("fromDate");
+    DateTime toDateInput = (DateTime)TempData.Peek("toDate");
+}
+
+<div class="d-flex p-3 bg-light rounded-3 flex-column justify-content-center align-items-center w-75">
+    <h2>Confirm your booking</h2>
+    <img class="img-fluid p-3" src="@Model.ImageLink"/>
+    <p class="fw-bold">Booking date:</p>
+    <div class="d-flex flex-column justify-content-center align-items-center ">
+        <p class="py-0 my-0">From @fromDateInput.ToString().Substring(0, 10) </p>
+        <p class="pt-0 mt-0">To @toDateInput.ToString().Substring(0, 10)</p>
+    </div>
+    <p class="fw-bold">About the room:</p>
+    <div class ="d-flex flex-column justify-content-center align-items-center ">
+        <p class="py-0 my-0">Room number: @Html.DisplayFor(model => model.RoomNum)</p>
+        <p class="py-0 my-0">Room size: @Html.DisplayFor(model => model.RoomSize)</p>
+        <p class="pt-0 mt-0">Num beds: @Html.DisplayFor(model => model.NumBeds)</p>
+    </div>
+
+    <div class="">
+        <a class="text-decoration-none text-black border-dark border p-1 rounded-2 fw-bold" asp-action="ConfirmBooking" asp-route-id="@Model.RoomNum.ToString()">Book room</a>
+    </div>
+</div>
+
+

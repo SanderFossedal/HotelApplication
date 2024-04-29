@@ -1,0 +1,98 @@
+﻿<Window x:Class="WpfApp.ServiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Height="600" Width="920"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen">
+    <Border Background="#252735"
+            CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="1" Margin="40,0,40,0" VerticalAlignment="Center">
+                <Label Content="Service Personnel" 
+                       Foreground="#fff" FontSize="36" 
+                       HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Margin="40,0,40,0" VerticalAlignment="Center">
+                <Button 
+                    Content="Back" 
+                    HorizontalAlignment="Left" 
+                    Height="40" Width="74" 
+                    Click="GoBackButton">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="2" Margin="50, 0, 50, 0" VerticalAlignment="Top">
+                <ListView Name="taskList" ItemsSource="{Binding}">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Width="100" Header="ID" DisplayMemberBinding="{Binding Path=Id}" />
+                                <GridViewColumn Width="120" Header="Type" DisplayMemberBinding="{Binding Path=Tasktype}" />
+                                <GridViewColumn Width="200" Header="Description" DisplayMemberBinding="{Binding Path=Taskdescription}" />
+                                <GridViewColumn Width="120" Header="Status" DisplayMemberBinding="{Binding Path=Taskstatus}" />
+                                <GridViewColumn Width="100" Header="Room" DisplayMemberBinding="{Binding Path=RoomNum}" />
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Margin="0, -200, 0, 0">
+                <Label Content="Change status of task:" Foreground="#fff" HorizontalAlignment="Center"/>
+                <Label Content="(NEW, INPROGRESS, FINISHED)" Foreground="#fff" FontSize="8" HorizontalAlignment="Center"/>
+                <TextBox Name="tid" TextWrapping="Wrap" Text="Task Id" Width="120" Margin="10"/>
+                <TextBox Name="tstatus" TextWrapping="Wrap" Text="New Task Status" Width="120"/>
+                <Button 
+                    Content="Change status" 
+                    HorizontalAlignment="Center"
+                    Margin="10"
+                    Height="20" Width="100" Click="ChangeStatusButton" 
+                    >
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Margin="0, 100, 0, 0">
+                <Label Content="Add note:" Foreground="#fff" HorizontalAlignment="Center"/>
+                <TextBox Name="tid2" TextWrapping="Wrap" Text="Task Id" Width="120" Margin="10"/>
+                <TextBox Name="tnote" TextWrapping="Wrap" Text="Task Note" Width="120"/>
+                <Button 
+                    Content="Add Note" 
+                    HorizontalAlignment="Center"
+                    Margin="10"
+                    Height="20" Width="100" Click="AddNoteButton" 
+                    >
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
